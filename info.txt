@@ -1,5 +1,8 @@
 
 install web3 in react-native
+    $ npm install web3 --save
+    After Install delete node_modules and run $ npm install again
+    Because it browserifies all modules laong with web3 compatibility
 
 install ganache-cli
     wrapper on top of test-rpc :
