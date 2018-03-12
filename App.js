@@ -1,23 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+
+    state = {
+        data: ["hello", "world"]
+    };
+
+    componentDidMount() {
+        // Need babel plugin for this
+        // const data = await fetch("http://api.com");
+        // const result = await data.json();
+        // this.setState({data: result});  // Reason for using set State is to refreshState.
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                {this.state.data.map((item, index) => <Text key={index}>{item}</Text>)}
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
