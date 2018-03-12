@@ -1,0 +1,36 @@
+
+install web3 in react-native
+
+install ganache-cli
+    wrapper on top of test-rpc :
+    has commands to create account and lot of operations directly.
+
+    $ ganache-cli -a=10 -e=1000000
+
+
+Deploy a Contract (ICO)
+    USe 18 Decimal
+    *** Message object has: value, sender, txHash
+    *** Events are IMP: No one would know what's happening (esp (etherScan won't pickup those Txs)
+    *** constant modifier is useful: Prevents memory allocation to the value it represents
+        (Never stave this value in Memory. Just reference the Hash because contract already has it)
+    view identifier: On similar lines view is used
+
+    *** BIG THING to Remember is, WALLET doesn't store TOKENS, SmartContract Does (only mapping),
+        So if the contract dies, Tokens are lost
+        It's nothing but Mapping of walletAddress => token amount value
+
+    Transfer Ethers when function () payable public is called
+            address.send(amt)
+        Use transfer()
+            require (msg.value > 0);
+            require(toAddress.transfer(msg.value));
+
+         **********
+         // if require fails then reverts all the state tx and all sub state txs.
+         // So always put transfer with require at last
+         **********
+
+---
+
+Connect with Blockchain.
